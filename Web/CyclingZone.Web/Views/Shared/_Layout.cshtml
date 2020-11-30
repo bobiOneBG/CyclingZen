@@ -1,0 +1,110 @@
+﻿@using CyclingZone.Common
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@this.ViewData["Title"] - @GlobalConstants.SystemName</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true" />
+</head>
+<body>
+    @*<header>
+            <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@GlobalConstants.SystemName</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                        <partial name="_LoginPartial" />
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>*@
+
+    <div id="header">
+        <div>
+            <partial name="_LoginPartial" />
+        </div>
+        @*<div id="logo">
+            <a href="index.html"> <img src="images/logo.gif" alt="LOGO"> </a>
+        </div>*@
+        <ul id="navigation">
+            <li class="active">
+                <a href="index.html">home</a>
+            </li>
+            <li>
+                <a href="about.html">about</a>
+            </li>
+            <li>
+                <a href="blog.html">blog</a>
+            </li>
+            <li>
+                <a href="journey.html">the journey</a>
+            </li>
+        </ul>
+    </div>
+    <main>
+        @this.RenderBody()
+    </main>
+    <div id="footer">
+        <ul id="connect">
+            <li>
+                <a href="http://freewebsitetemplates.com/go/facebook/" target="_blank" class="facebook" title="Facebook"></a>
+            </li>
+            <li>
+                <a href="http://freewebsitetemplates.com/go/twitter/" target="_blank" class="twitter" title="Twitter"></a>
+            </li>
+            <li>
+                <a href="http://freewebsitetemplates.com/go/youtube/" target="_blank" class="vimeo" title="Vimeo"></a>
+            </li>
+            <li>
+                <a href="http://freewebsitetemplates.com/go/googleplus/" target="_blank" class="googleplus" title="Google+"></a>
+            </li>
+        </ul>
+        <div id="footnote">
+            <ul>
+                <li class="active">
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+                <li>
+                    <a href="blog.html">Blog</a>
+                </li>
+                <li>
+                    <a href="index.html">Gallery</a>
+                </li>
+            </ul>
+            <span>&copy; Copyright &copy; 2020. Cycling Zone all rights reserved.</span>
+        </div>
+    </div>
+
+    @*<footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; @DateTime.Now.Year - @GlobalConstants.SystemName - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>*@
+
+    <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
+    <script src="~/js/site.min.js" asp-append-version="true"></script>
+    @await this.RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
