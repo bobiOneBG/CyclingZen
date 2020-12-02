@@ -1,0 +1,72 @@
+﻿@model CyclingZone.Web.ViewModels.Articles.ArticleCreateInputModel
+@using System.Linq;
+@{
+    var subcategories = Model.SelectSubcategories;
+}
+
+<form asp-action="Create" method="post" id="admin">
+    <div>
+        <label asp-for="@Model.Title"></label>
+        <input class="form-control" asp-for="@Model.Title" />
+        <span asp-validation-for="@Model.Title"></span>
+    </div>
+    <div>
+        <label class="mt-4" asp-for="@Model.Subtitle"></label>
+        <input class="form-control" asp-for="@Model.Subtitle" />
+        <span asp-validation-for="@Model.Subtitle"></span>
+    </div>
+    <div>
+        <label class="mt-4" asp-for="@Model.Author"></label>
+        <input class="form-control" asp-for="@Model.Author" />
+        <span asp-validation-for="@Model.Author"></span>
+    </div>
+    <div>
+        <label class="mt-4" asp-for="@Model.ImageUrl"></label>
+        <input class="form-control" asp-for="@Model.ImageUrl" />
+        <span asp-validation-for="@Model.ImageUrl"></span>
+    </div>
+    <div>
+        <label class="mt-4" asp-for="@Model.CategoryId"></label>
+        <select class="form-control" id="category_selector" asp-items="Model.SelectCategories" asp-for="@Model.CategoryId"></select>
+        <span asp-validation-for="@Model.SelectCategories"></span>
+    </div>
+    <div>
+        <label class="mt-4" asp-for="@Model.SubcategoryId"></label>
+        <select class="form-control" id="select" asp-items="Model.SelectSubcategories" asp-for="@Model.SubcategoryId"></select>
+        <span asp-validation-for="@Model.Subcategories"></span>
+    </div>
+    <div>
+        <label class="mt-4" asp-for="@Model.Content"></label>
+        <textarea class="form-control-range" asp-for="@Model.Content"></textarea>
+        <span asp-validation-for="@Model.Content"></span>
+    </div>
+    <div>
+        <input type="submit" value="Submit" class="more btn-dark btn-block mt-4" />
+    </div>
+</form>
+@section Scripts
+{
+    <script>
+        $('#category_selector').change(function () {
+
+            //Use $option (with the "$") to see that the variable is a jQuery object
+            var $option = $(this).find('option:selected');
+            //Added with the EDIT
+            var value = $option.val();//to get content of "value" attrib
+
+            var text = $option.text();//to get <option>Text</option> content
+
+            $("#select option").each(function () {
+                var $thisOption = $(this);
+
+                var valueToCompare = value;
+                var sss = $thisOption.val();
+                if ($thisOption.val() != valueToCompare) {
+                    $thisOption.attr("disabled", true);
+                } else {
+                    $thisOption.attr("disabled", false);
+                }
+            });
+        });
+    </script>
+}

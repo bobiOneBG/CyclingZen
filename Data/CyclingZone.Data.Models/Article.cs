@@ -1,6 +1,7 @@
 ﻿namespace CyclingZone.Data.Models
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
 
     using CyclingZone.Data.Common.Models;
 
@@ -15,6 +16,8 @@
         public string ImageUrl { get; set; }
 
         public string Content { get; set; }
+
+        public int CategoryId { get; set; }
 
         public int SubcategoryId { get; set; }
     }

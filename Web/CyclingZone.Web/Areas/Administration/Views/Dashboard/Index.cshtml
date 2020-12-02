@@ -4,4 +4,7 @@
 }
 
 <h1>@this.ViewData["Title"]</h1>
-Settings: @this.Model.SettingsCount
+@*Settings: @this.Model.SettingsCount*@
+<div id="navigation" class="float-none">
+    <a asp-area="Administration" asp-controller="Dashboard" asp-action="Create">Create Article</a>
+</div>

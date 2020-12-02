@@ -104,6 +104,23 @@ img {
     #logo img {
         padding-top: 34px;
     }
+
+#admin div input[type=text], textarea {
+    background-color: #383838;
+    color: white;
+    padding: 29px 13px;
+    outline: 0;
+    text-decoration: none;
+}
+
+#admin div label {
+    color: azure;
+}
+
+#admin div select {
+    color: azure;
+    background-color: #383838;
+}
 /** Navigation **/
 #navigation {
     float: left;
@@ -171,6 +188,7 @@ img {
         background: url(../images/bg-navigation-hover.png) repeat-x center;
         color: #d2d2d2;
     }
+
 #adboxs {
     background: url(../images/bg-featured.jpg) no-repeat center;
     height: 438px;
