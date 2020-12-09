@@ -30,21 +30,22 @@
         public string Content { get; set; }
 
         [Range(1, int.MaxValue)]
-        [Display(Name = "Subcategory")]
-        public int SubcategoryId { get; set; }
-
-        [Range(1, int.MaxValue)]
         [Display(Name = "Category")]
         public int CategoryId { get; set; }
+
+        [Range(1, int.MaxValue)]
+        [Display(Name = "Subcategory")]
+        public int SubcategoryId { get; set; }
 
         public IEnumerable<CategoryDropdownViewModel> Categories { get; set; }
 
         public IEnumerable<SelectListItem> SelectCategories => this.Categories?
-            .Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() });
+            .Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString(), Disabled = true });
 
         public IEnumerable<SubcategoriesDropdownViewModel> Subcategories { get; set; }
 
+        // Pass info for categoryId to selectListItem in create view(concat CategoryId and Id)
         public IEnumerable<SelectListItem> SelectSubcategories => this.Subcategories?
-            .Select(x => new SelectListItem { Text = x.Name, Value = x.CategoryId.ToString() });
+            .Select(x => new SelectListItem { Text = x.Name, Value = x.CategoryId.ToString() + x.Id.ToString(), Disabled = true });
     }
 }

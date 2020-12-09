@@ -1,0 +1,37 @@
+﻿@model CyclingZone.Web.ViewModels.Subcategories.IndexSubcategoryViewModel
+@{
+    var sss = Model.Articles;
+    ;
+}
+<h1>@Model.LatestArticle.Title</h1>
+<h3>@Model.LatestArticle.Subtitle</h3>
+<h6>@Model.LatestArticle.Author</h6>
+<p>@Model.LatestArticle.CreatedOn</p>
+<img class="img-fluid" src="@Model.LatestArticle.ImageUrl" alt="journey Img">
+
+<p>
+    @Html.Raw(Model.LatestArticle.SanitizedContent)
+</p>
+
+<div id="body">
+    <div class="card-deck" id="articles">
+        <ul>
+            <div class="row row-cols-1 row-cols-md-2">
+                @foreach (var article in Model.Articles)
+                {
+                    <li>
+                        <div class="col mb-4">
+                            <a class="more" asp-controller="Subcategories"
+                               asp-action="Index" asp-route-articleId="@article.Id" asp-route-subcategoryId="@article.SubcategoryId">
+                                <img class="card-img-top" src="@article.ImageUrl" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">@article.ShortTitle</h5>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                }
+            </div>
+        </ul>
+    </div>
+</div>

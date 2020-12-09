@@ -57,7 +57,7 @@
 
             var articleId = await this.articleService
                   .CreateArticle(input.Title, input.Subtitle, input.Author,
-                      input.ImageUrl, input.Content, input.SubcategoryId);
+                      input.ImageUrl, input.Content, input.CategoryId, input.SubcategoryId);
 
             // TO DO...Show created article
             return this.RedirectToAction(string.Empty, new { id = articleId });

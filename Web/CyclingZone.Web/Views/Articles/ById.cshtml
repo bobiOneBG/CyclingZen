@@ -1,0 +1,45 @@
+﻿@model CyclingZone.Web.ViewModels.Articles.ArticleViewModel
+
+@{
+    var sss = Model.SubcategoryId;
+    var ddd = Model.Articles;
+    ;
+}
+
+<h4 style="margin-left: 100px">Home / @Model.Category / @Model.Subcategory</h4>
+
+<div id="body">
+    <div id="contents">
+        <div id="journey">
+            <h1>@Model.Title</h1>
+            <h3>@Model.Subtitle</h3>
+            <h6>@Model.Author</h6>
+            <p>@Model.CreatedOn</p>
+            <img class="img-fluid" src="@Model.ImageUrl" alt="journey Img">
+
+            <p>
+                @Html.Raw(Model.SanitizedContent)
+            </p>
+        </div>
+    </div>
+    <div id="articles">
+        <p>
+            This website template has been designed by <a href="http://www.freewebsitetemplates.com/">Free Website Templates</a> and developed by BobiOne
+        </p>
+
+        <ul>
+            @foreach (var article in Model.Articles)
+            {
+                <li>
+                    <a class="more" asp-area="" asp-controller="Subcategories"
+                       asp-action="Index" asp-route-articleId="@Model.Id" asp-route-subcategoryId="@article.SubcategoryId">
+                        <img class="card-img-top" src="@article.ImageUrl" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">@article.ShortTitle</h5>
+                        </div>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

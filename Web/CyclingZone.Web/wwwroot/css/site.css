@@ -1,61 +1,4 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-/*a.navbar-brand {
-    white-space: normal;
-    text-align: center;
-    word-break: break-all;
-}*/
-
-/* Sticky footer styles
--------------------------------------------------- */
-/*html {
-    font-size: 14px;
-}
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
-}
-
-.border-top {
-    border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-    border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-    font-size: 1rem;
-    line-height: inherit;
-}*/
-
-/* Sticky footer styles
--------------------------------------------------- */
-/*html {
-    position: relative;
-    min-height: 100%;
-}
-
-body {*/
-    /* Margin bottom by footer height */
-    /*margin-bottom: 60px;
-}
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    white-space: nowrap;*/
-    /* Set the fixed height of the footer here */
-    /*height: 60px;
-    line-height: 60px;*/ /* Vertically center the text there */
-/*}*/
-
-/* Website template by freewebsitetemplates.com */
+﻿/* Website template by freewebsitetemplates.com */
 @font-face {
     font-family: 'VarelaRound-Regular';
     src: url('../fonts/VarelaRound-Regular.eot');
@@ -149,6 +92,7 @@ img {
             background: url(../images/bg-navigation-hover.png) repeat-x center;
             color: #d2d2d2;
         }
+
 #navigationpartial {
     float: right;
     line-height: 108px;
@@ -190,8 +134,8 @@ img {
     }
 
 #adboxs {
-    background: url(../images/bg-featured.jpg) no-repeat center;
-    height: 438px;
+    /* background: url(../images/bg-featured.jpg) no-repeat center;*/
+    height: auto;
     margin: 0 auto;
     padding: 30px 0;
 }
@@ -202,12 +146,12 @@ img {
     }
 
         #adboxs div div {
-            float: right;
+            /* float: right;*/
             line-height: 24px;
             width: 410px;
         }
 
-            #adboxs div div h1 {
+            #adboxs div div a h3 {
                 background: url(../images/bg-separator.jpg) no-repeat left bottom;
                 color: #f7f7f1;
                 font: 28px/30px 'VarelaRound-Regular';
@@ -215,20 +159,13 @@ img {
                 padding: 0 0 24px;
             }
 
-            #adboxs div div p {
+            #adboxs div div a p {
                 color: #fff;
-                font: 14px/24px 'VarelaRound-Regular';
-                margin: 0;
-                padding: 0 0 24px;
             }
 
-                #adboxs div div p a {
-                    color: #fff;
-                }
-
-                    #adboxs div div p a:hover {
-                        color: #9b9b9b;
-                    }
+            #adboxs div div p a:hover {
+                color: #9b9b9b;
+            }
 
             #adboxs div div a.more {
                 background: url(../images/btn-readmore.png) no-repeat;
@@ -250,6 +187,11 @@ img {
 /*------------------------------ CONTENTS ------------------------------*/
 #body {
     background-color: #181818;
+
+}
+img {
+    max-width: 100%;
+    height: auto;
 }
 /** MAIN **/
 #main {

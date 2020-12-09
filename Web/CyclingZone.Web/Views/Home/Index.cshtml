@@ -1,55 +1,42 @@
-﻿@using CyclingZone.Common
+﻿@model CyclingZone.Web.ViewModels.Home.IndexViewModel
+@using CyclingZone.Common
 @{
     this.ViewData["Title"] = "Home Page";
+
+    //Articles are sorted by "CreatedOn" property in ArticleService.GetAll()
+    var latestArticle = Model.Articles.FirstOrDefault();
+
+    var articles = Model.Articles.Skip(1).Take((Model.Articles.Count() - 1));
 }
 
 <div id="adboxs">
     <div>
-        <div>
-            <h1>Lorem Ipsum Dolor</h1>
-            <p>
-                This website template has been designed by <a href="http://www.freewebsitetemplates.com/">Free Website Templates</a> for you, for free. You can replace all this text with your own text.
-            </p>
-            <p>
-                You can remove any link to our website from this website template, you're free to use this website template without linking back to us.
-            </p>
-            <p>
-                If you're having problems editing this website template, then don't hesitate to ask for help on the <a href="http://www.freewebsitetemplates.com/forums/">Forum</a>.
-            </p>
-            <a href="index.html" class="more">Read more!</a>
-        </div>
+        <a asp-area="" asp-controller="Articles" asp-action="ById" asp-route-id="@latestArticle.Id">
+            <img src="@latestArticle.ImageUrl" alt="@latestArticle.Title">
+            <h3>@latestArticle.Title</h3>
+        </a>
     </div>
 </div>
 <div id="body">
     <div id="main">
         <h2><span>&#8220; In Bike We Trust &#8221;</span></h2>
         <p>
-            This website template has been designed by <a href="http://www.freewebsitetemplates.com/">Free Website Templates</a> for you, for free. You can replace all this text with your own text. You can remove any link to our website from this website template, you're free to use this website template without linking back to us. If you're having problems editing this website template, then don't hesitate to ask for help on the <a href="http://www.freewebsitetemplates.com/forums/">Forum</a>.
+            This website has been designed by <a href="http://www.freewebsitetemplates.com/">Free Website Templates</a> for you, for free. You can replace all this text with your own text. You can remove any link to our website from this website template, you're free to use this website template without linking back to us. If you're having problems editing this website template, then don't hesitate to ask for help on the <a href="http://www.freewebsitetemplates.com/forums/">Forum</a>.
         </p>
     </div>
-    <div id="articles">
+    <div class="card-deck" id="articles">
         <ul>
-            <li>
-                <img src="images/biker.jpg" alt="Img">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisi risus, iaculis vitae imperdiet et, ultrices non elit. Aliquam est purus, tristique dictum
-                </p>
-                <a href="blog.html" class="more">Read more >></a>
-            </li>
-            <li>
-                <img src="images/biker2.jpg" alt="Img">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisi risus, iaculis vitae imperdiet et, ultrices non elit. Aliquam est purus, tristique dictum
-                </p>
-                <a href="blog.html" class="more">Read more >></a>
-            </li>
-            <li>
-                <img src="images/biker3.jpg" alt="Img">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisi risus, iaculis vitae imperdiet et, ultrices non elit. Aliquam est purus, tristique dictum
-                </p>
-                <a href="blog.html" class="more">Read more >></a>
-            </li>
+            @foreach (var article in articles)
+            {
+                <li>
+                    <a class="more" asp-area="" asp-controller="Articles" asp-action="ById" asp-route-id="@article.Id">
+                        <img class="card-img-top" src="@article.ImageUrl" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">@article.ShortTitle</h5>
+                        </div>
+                    </a>
+                </li>
+            }
         </ul>
     </div>
 </div>

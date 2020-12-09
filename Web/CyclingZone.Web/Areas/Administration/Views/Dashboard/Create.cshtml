@@ -1,44 +1,44 @@
 ﻿@model CyclingZone.Web.ViewModels.Articles.ArticleCreateInputModel
 @using System.Linq;
 @{
-    var subcategories = Model.SelectSubcategories;
+    var categoryId = Model.CategoryId;
 }
 
 <form asp-action="Create" method="post" id="admin">
-    <div>
-        <label asp-for="@Model.Title"></label>
-        <input class="form-control" asp-for="@Model.Title" />
+    <div class="form-group">
+        <label class="pl-3" asp-for="@Model.Title"></label>
+        <input class="form-control" asp-for="@Model.Title" placeholder="Title" />
         <span asp-validation-for="@Model.Title"></span>
     </div>
-    <div>
-        <label class="mt-4" asp-for="@Model.Subtitle"></label>
+    <div class="form-group">
+        <label class="mt-4 pl-3" asp-for="@Model.Subtitle"></label>
         <input class="form-control" asp-for="@Model.Subtitle" />
         <span asp-validation-for="@Model.Subtitle"></span>
     </div>
-    <div>
-        <label class="mt-4" asp-for="@Model.Author"></label>
+    <div class="form-group">
+        <label class="mt-4 pl-3" asp-for="@Model.Author"></label>
         <input class="form-control" asp-for="@Model.Author" />
         <span asp-validation-for="@Model.Author"></span>
     </div>
-    <div>
-        <label class="mt-4" asp-for="@Model.ImageUrl"></label>
+    <div class="form-group">
+        <label class="mt-4 pl-3" asp-for="@Model.ImageUrl"></label>
         <input class="form-control" asp-for="@Model.ImageUrl" />
         <span asp-validation-for="@Model.ImageUrl"></span>
     </div>
-    <div>
-        <label class="mt-4" asp-for="@Model.CategoryId"></label>
-        <select class="form-control" id="category_selector" asp-items="Model.SelectCategories" asp-for="@Model.CategoryId"></select>
+    <div class="form-group">
+        <label class="mt-4 pl-3" asp-for="@Model.CategoryId"></label>
+        <select asp-items="Model.SelectCategories" asp-for="@Model.CategoryId" class="form-control" id="category_selector"></select>
         <span asp-validation-for="@Model.SelectCategories"></span>
     </div>
-    <div>
-        <label class="mt-4" asp-for="@Model.SubcategoryId"></label>
-        <select class="form-control" id="select" asp-items="Model.SelectSubcategories" asp-for="@Model.SubcategoryId"></select>
-        <span asp-validation-for="@Model.Subcategories"></span>
+    <div class="form-group">
+        <label class="mt-4 pl-3" asp-for="@Model.SubcategoryId"></label>
+        <select asp-items="Model.SelectSubcategories" asp-for="@Model.SubcategoryId" class="form-control" id="select"></select>
+        <span asp-validation-for="@Model.SelectSubcategories"></span>
     </div>
-    <div>
-        <label class="mt-4" asp-for="@Model.Content"></label>
-        <textarea class="form-control-range" asp-for="@Model.Content"></textarea>
-        <span asp-validation-for="@Model.Content"></span>
+    <div class="form-group">
+        <label class="mt-4 pl-3" asp-for="Content"></label>
+        <textarea asp-for="Content" class="form-control"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
     </div>
     <div>
         <input type="submit" value="Submit" class="more btn-dark btn-block mt-4" />
@@ -46,26 +46,42 @@
 </form>
 @section Scripts
 {
+    <script src="/lib/tinymce/tinymce.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea",
+            plugins: [
+                "image paste table link code media"
+            ]
+        });
+    </script>
+
     <script>
-        $('#category_selector').change(function () {
+        // Enable options from category dropdown
+        $('#category_selector').click(function () {
+            $('#category_selector option').attr('disabled', false);
+            $('#category_selector').change(function () {
+                //Use $option (with the "$") to see that the variable is a jQuery object
+                var $option = $(this).find('option:selected');
+                //Added with the EDIT
+                var value = $option.val();//to get content of "value" attrib
 
-            //Use $option (with the "$") to see that the variable is a jQuery object
-            var $option = $(this).find('option:selected');
-            //Added with the EDIT
-            var value = $option.val();//to get content of "value" attrib
+                //var text = $option.text();//to get <option>Text</option> content
 
-            var text = $option.text();//to get <option>Text</option> content
+                // Enable options with definitely categoryId
+                $('#select').click(function () {
+                    $('#select option').attr('disabled', false);
+                    $('#select option').each(function () {
+                        var $thisOption = $(this);
+                        var valueToCompare = value;
+                        var sss = $thisOption.val();
+                        var ctgrId = sss.charAt(0);
 
-            $("#select option").each(function () {
-                var $thisOption = $(this);
-
-                var valueToCompare = value;
-                var sss = $thisOption.val();
-                if ($thisOption.val() != valueToCompare) {
-                    $thisOption.attr("disabled", true);
-                } else {
-                    $thisOption.attr("disabled", false);
-                }
+                        if (ctgrId != valueToCompare) {
+                            $thisOption.attr('disabled', true);
+                        }
+                    });
+                });
             });
         });
     </script>

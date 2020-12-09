@@ -2,15 +2,27 @@
 {
     using System.Diagnostics;
 
+    using CyclingZone.Services.Data;
     using CyclingZone.Web.ViewModels;
-
+    using CyclingZone.Web.ViewModels.Home;
     using Microsoft.AspNetCore.Mvc;
 
     public class HomeController : BaseController
     {
+        private const int ArticlesCount = 4;
+
+        private readonly IArticleService articleService;
+
+        public HomeController(IArticleService articleService)
+        {
+            this.articleService = articleService;
+        }
+
         public IActionResult Index()
         {
-            return this.View();
+            var articles = this.articleService.GetAll<IndexArticleViewModel>(ArticlesCount);
+
+            return this.View(new IndexViewModel { Articles = articles });
         }
 
         public IActionResult Privacy()

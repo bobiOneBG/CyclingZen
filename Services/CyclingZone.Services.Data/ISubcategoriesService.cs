@@ -5,6 +5,7 @@
     public interface ISubcategoriesService
     {
         IEnumerable<T> GetAll<T>();
+
         IEnumerable<T> GetByCategoryId<T>(int? categoryId);
     }
 }
