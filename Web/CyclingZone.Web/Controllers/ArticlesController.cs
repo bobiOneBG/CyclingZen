@@ -14,7 +14,7 @@
 
     public class ArticlesController : BaseController
     {
-        private const int ArticlesCount = 4;
+        private const int ArticlesCount = 3;
 
         private readonly IArticleService articleService;
 
@@ -25,11 +25,11 @@
 
         public IActionResult ById(int id)
         {
-            var articleViewModel = this.articleService.GettById<ArticleViewModel>(id);
+            var articleViewModel = this.articleService.GetById<ArticleViewModel>(id);
 
             var subcategoryId = this.articleService.GetSubcategoryId(id);
             articleViewModel.Articles = this.articleService
-                .GetBySubcategoryId<IndexArticleViewModel>(subcategoryId, ArticlesCount);
+                .GetBySubcategoryId<IndexArticleViewModel>(id, subcategoryId, ArticlesCount);
 
             return this.View(articleViewModel);
         }

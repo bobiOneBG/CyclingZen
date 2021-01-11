@@ -7,8 +7,6 @@
 
     public class IndexSubcategoryViewModel
     {
-        public ArticleViewModel LatestArticle { get; set; }
-
-        public IEnumerable<ArticlesInSubcategoryViewModel> Articles { get; set; }
+        public IEnumerable<ArticleInSubcategoryViewModel> Articles { get; set; }
     }
 }

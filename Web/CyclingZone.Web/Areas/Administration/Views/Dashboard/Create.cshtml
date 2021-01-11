@@ -6,6 +6,7 @@
 
 <form asp-action="Create" method="post" id="admin">
     <div class="form-group">
+
         <label class="pl-3" asp-for="@Model.Title"></label>
         <input class="form-control" asp-for="@Model.Title" placeholder="Title" />
         <span asp-validation-for="@Model.Title"></span>

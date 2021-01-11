@@ -18,9 +18,7 @@
 
         public IEnumerable<T> GetAll<T>()
         {
-            var subcategories = this.subcategoriesRepository.All()
-                .To<T>()
-                .ToList();
+            var subcategories = this.subcategoriesRepository.All().To<T>().ToList();
 
             return subcategories;
         }

@@ -10,10 +10,12 @@
 
         IEnumerable<T> GetAll<T>(int? count = null);
 
-        IEnumerable<T> GetBySubcategoryId<T>(int categoryId, int? count = null);
+        IEnumerable<T> GetBySubcategoryId<T>(int id, int categoryId, int? count = null);
 
         int GetSubcategoryId(int id);
 
-        T GettById<T>(int id);
+        T GetById<T>(int id);
+
+        IEnumerable<T> GetAll<T>(string name);
     }
 }

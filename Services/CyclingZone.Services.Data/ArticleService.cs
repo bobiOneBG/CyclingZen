@@ -11,7 +11,7 @@
 
     public class ArticleService : IArticleService
     {
-        private const int ArticlesCount = 4;
+        private const int ArticlesCount = 3;
 
         private readonly IDeletableEntityRepository<Article> articleRepository;
         private readonly IDeletableEntityRepository<Category> categoryRepository;
@@ -35,11 +35,20 @@
             return subcategoryId;
         }
 
-        public T GettById<T>(int id)
+        public T GetById<T>(int id)
         {
             var article = this.articleRepository.All().Where(x => x.Id == id).To<T>().FirstOrDefault();
 
             return article;
+        }
+
+        public IEnumerable<T> GetAll<T>(string subcategoryName)
+        {
+            var articles = this.articleRepository.All()
+                .Where(x => x.Subcategory == subcategoryName)
+                .OrderByDescending(x => x.CreatedOn);
+
+            return articles.To<T>().ToList();
         }
 
         public IEnumerable<T> GetAll<T>(int? count = default(int))
@@ -55,9 +64,9 @@
             return articles.To<T>().ToList();
         }
 
-        public IEnumerable<T> GetBySubcategoryId<T>(int subcategoryId, int? count)
+        public IEnumerable<T> GetBySubcategoryId<T>(int id, int subcategoryId, int? count)
         {
-            var articles = this.articleRepository.All().Where(x => x.SubcategoryId == subcategoryId);
+            var articles = this.articleRepository.All().Where(x => x.SubcategoryId == subcategoryId && x.Id != id);
             if (count.HasValue)
             {
                 articles = articles.Take(ArticlesCount);

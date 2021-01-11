@@ -1,16 +1,16 @@
 ﻿@model CyclingZone.Web.ViewModels.Subcategories.IndexSubcategoryViewModel
 @{
-    var sss = Model.Articles;
+    var LatestArticle = Model.Articles.FirstOrDefault();
     ;
 }
-<h1>@Model.LatestArticle.Title</h1>
-<h3>@Model.LatestArticle.Subtitle</h3>
-<h6>@Model.LatestArticle.Author</h6>
-<p>@Model.LatestArticle.CreatedOn</p>
-<img class="img-fluid" src="@Model.LatestArticle.ImageUrl" alt="journey Img">
+<h1>LatestArticle.Title</h1>
+<h3>LatestArticle.Subtitle</h3>
+<h6>LatestArticle.Author</h6>
+ <p>LatestArticle.CreatedOn</p>
+<img class="img-fluid" src="@LatestArticle.ImageUrl" alt="journey Img">
 
 <p>
-    @Html.Raw(Model.LatestArticle.SanitizedContent)
+    @Html.Raw(LatestArticle.SanitizedContent)
 </p>
 
 <div id="body">

@@ -9,70 +9,98 @@
     <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true" />
 </head>
 <body>
-
-    <div id="header">
-        <div>
-            <partial name="_LoginPartial" />
-        </div>
-
-        <ul id="navigation">
-            <li class="active">
-                <a asp-area="" asp-controller="Home" asp-action="Index">@GlobalConstants.SystemName</a>
-            </li>
-            <li>
-                <a href="about.html">News</a>
-            </li>
-            <li>
-                <a href="blog.html">Reviews</a>
-            </li>
-            <li>
-                <a href="journey.html">Fitness</a>
-            </li>
-        </ul>
-    </div>
-    <main>
-        @this.RenderBody()
-    </main>
-    <div id="footer">
-        <ul id="connect">
-            <li>
-                <a href="http://freewebsitetemplates.com/go/facebook/" target="_blank" class="facebook" title="Facebook"></a>
-            </li>
-            <li>
-                <a href="http://freewebsitetemplates.com/go/twitter/" target="_blank" class="twitter" title="Twitter"></a>
-            </li>
-            <li>
-                <a href="http://freewebsitetemplates.com/go/youtube/" target="_blank" class="vimeo" title="Vimeo"></a>
-            </li>
-            <li>
-                <a href="http://freewebsitetemplates.com/go/googleplus/" target="_blank" class="googleplus" title="Google+"></a>
-            </li>
-        </ul>
-        <div id="footnote">
-            <ul>
-                <li class="active">
-                    <a href="index.html">Home</a>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="collapse navbar-collapse" id="main_nav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" asp-area="" asp-controller="Home"
+                       asp-action="Index">
+                        @GlobalConstants.SystemName
+                    </a>
                 </li>
-                <li>
-                    <a href="about.html">About</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  News  </a>
+                    <ul class="dropdown-menu">
+                        <li><a asp-controller="Subcategories" asp-action="ByName" asp-route-name="Racing" class="dropdown-item"> Racing </a></li>
+                        <li><a asp-controller="Subcategories" asp-action="ByName" asp-route-name="General news" class="dropdown-item"> General news</a></li>
+                        <li><a asp-controller="Subcategories" asp-action="ByName" asp-route-name="Product news" class="dropdown-item"> Product news </a></li>
+                    </ul>
                 </li>
-                <li>
-                    <a href="blog.html">Blog</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  Reviews  </a>
+                    <ul class="dropdown-menu">
+                        <li><a asp-controller="Subcategories" asp-action="ByName" asp-route-name="Product news" class="dropdown-item"> Bike Reviews </a></li>
+                        <li><a asp-controller="Subcategories" asp-action="ByName" asp-route-name="Bike Components" class="dropdown-item"> Bike Components </a></li>
+                        <li><a asp-controller="Subcategories" asp-action="ByName" asp-route-name="Bike Accessories" class="dropdown-item"> Bike Accessories </a></li>
+                        <li><a asp-controller="Subcategories" asp-action="ByName" asp-route-name="Clothing" class="dropdown-item"> Clothing </a></li>
+                    </ul>
                 </li>
-                <li>
-                    <a href="index.html">Gallery</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  Fitness  </a>
+                    <ul class="dropdown-menu">
+                        <li><a asp-controller="Subcategories" asp-action="ByName" asp-route-name="Bike Fit" class="dropdown-item"> Bike Fit</a></li>
+                        <li><a asp-controller="Subcategories" asp-action="ByName" asp-route-name="Nutrition" class="dropdown-item"> Nutrition </a></li>
+                        <li><a asp-controller="Subcategories" asp-action="ByName" asp-route-name="Training" class="dropdown-item"> Training </a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" asp-area="" asp-controller="FHome"
+                       asp-action="Index">
+                        @GlobalConstants.SystemName - Forum
+                    </a>
                 </li>
             </ul>
-            <span>&copy; Copyright &copy; 2020. Cycling Zone all rights reserved.</span>
-        </div>
-    </div>
+    </div> <!-- navbar-collapse.// -->
 
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
-    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js" asp-append-version="true"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
-    <script src="~/js/site.min.js" asp-append-version="true"></script>
-    @await this.RenderSectionAsync("Scripts", required: false)
+    <div>
+        <partial name="_LoginPartial" />
+    </div>
+</nav>
+
+
+<main>
+    @this.RenderBody()
+</main>
+<div id="footer">
+    <ul id="connect">
+        <li>
+            <a href="http://freewebsitetemplates.com/go/facebook/" target="_blank" class="facebook" title="Facebook"></a>
+        </li>
+        <li>
+            <a href="http://freewebsitetemplates.com/go/twitter/" target="_blank" class="twitter" title="Twitter"></a>
+        </li>
+        <li>
+            <a href="http://freewebsitetemplates.com/go/youtube/" target="_blank" class="vimeo" title="Vimeo"></a>
+        </li>
+        <li>
+            <a href="http://freewebsitetemplates.com/go/googleplus/" target="_blank" class="googleplus" title="Google+"></a>
+        </li>
+    </ul>
+    <div id="footnote">
+        <ul>
+            <li class="active">
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="about.html">About</a>
+            </li>
+            <li>
+                <a href="blog.html">Blog</a>
+            </li>
+            <li>
+                <a href="index.html">Gallery</a>
+            </li>
+        </ul>
+        <span>&copy; Copyright &copy; 2020. Cycling Zone all rights reserved.</span>
+    </div>
+</div>
+
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
+<script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js" asp-append-version="true"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
+<script src="~/js/site.min.js" asp-append-version="true"></script>
+@await this.RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
