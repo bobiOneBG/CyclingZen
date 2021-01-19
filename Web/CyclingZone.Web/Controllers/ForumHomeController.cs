@@ -7,7 +7,7 @@
 
     using Microsoft.AspNetCore.Mvc;
 
-    public class FHomeController : BaseController
+    public class ForumHomeController : BaseController
     {
         public IActionResult Index()
         {

@@ -8,7 +8,7 @@
 
     using CyclingZone.Data.Common.Models;
     using CyclingZone.Data.Models;
-
+    using CyclingZone.Data.Models.ForumModels;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 
@@ -31,6 +31,8 @@
         public DbSet<Subcategory> Subcategories { get; set; }
 
         public DbSet<Article> Articles { get; set; }
+
+        public DbSet<ForumCategory> ForumCategories { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
