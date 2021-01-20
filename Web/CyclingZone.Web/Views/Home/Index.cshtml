@@ -11,12 +11,21 @@
 }
 
 <div id="adboxs">
-    <div>
-        <a asp-area="" asp-controller="Articles" asp-action="ById" asp-route-id="@latestArticle.Id">
-            <img src="@latestArticle.ImageUrl" alt="@latestArticle.Title">
-            <h3>@latestArticle.Title</h3>
-        </a>
-    </div>
+    @if (latestArticle == null)
+    {
+        <p class="text-center">Not articles added</p>
+    }
+
+    else
+    {
+        <div>
+            <a asp-area="" asp-controller="Articles" asp-action="ById" asp-route-id="@latestArticle.Id">
+                <img src="@latestArticle.ImageUrl" alt="@latestArticle.Title">
+                <h3>@latestArticle.Title</h3>
+            </a>
+        </div>
+    }
+
 </div>
 <div id="body">
     <div id="main">
@@ -27,16 +36,19 @@
     </div>
     <div class="card-deck" id="articles">
         <ul>
-            @foreach (var article in articles)
+            @if (articles.Any())
             {
-                <li>
-                    <a class="more" asp-area="" asp-controller="Articles" asp-action="ById" asp-route-id="@article.Id">
-                        <img class="card-img-top" src="@article.ImageUrl" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">@article.ShortTitle</h5>
-                        </div>
-                    </a>
-                </li>
+                @foreach (var article in articles)
+                {
+                    <li>
+                        <a class="more" asp-area="" asp-controller="Articles" asp-action="ById" asp-route-id="@article.Id">
+                            <img class="card-img-top" src="@article.ImageUrl" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">@article.ShortTitle</h5>
+                            </div>
+                        </a>
+                    </li>
+                }
             }
         </ul>
     </div>

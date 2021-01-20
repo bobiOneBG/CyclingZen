@@ -44,63 +44,65 @@
                     </ul>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" asp-area="" asp-controller="FHome"
+                    <a class="nav-link" asp-area="" asp-controller="ForumHome"
                        asp-action="Index">
                         @GlobalConstants.SystemName - Forum
                     </a>
                 </li>
             </ul>
-    </div> <!-- navbar-collapse.// -->
+        </div> <!-- navbar-collapse.// -->
 
-    <div>
-        <partial name="_LoginPartial" />
-    </div>
-</nav>
+        <div>
+            <ul id="navigationpartial">
+                <partial name="_LoginPartial" />
+            </ul>
+        </div>
+    </nav>
 
 
-<main>
-    @this.RenderBody()
-</main>
-<div id="footer">
-    <ul id="connect">
-        <li>
-            <a href="http://freewebsitetemplates.com/go/facebook/" target="_blank" class="facebook" title="Facebook"></a>
-        </li>
-        <li>
-            <a href="http://freewebsitetemplates.com/go/twitter/" target="_blank" class="twitter" title="Twitter"></a>
-        </li>
-        <li>
-            <a href="http://freewebsitetemplates.com/go/youtube/" target="_blank" class="vimeo" title="Vimeo"></a>
-        </li>
-        <li>
-            <a href="http://freewebsitetemplates.com/go/googleplus/" target="_blank" class="googleplus" title="Google+"></a>
-        </li>
-    </ul>
-    <div id="footnote">
-        <ul>
-            <li class="active">
-                <a href="index.html">Home</a>
+    <main>
+        @this.RenderBody()
+    </main>
+    <div id="footer">
+        <ul id="connect">
+            <li>
+                <a href="http://freewebsitetemplates.com/go/facebook/" target="_blank" class="facebook" title="Facebook"></a>
             </li>
             <li>
-                <a href="about.html">About</a>
+                <a href="http://freewebsitetemplates.com/go/twitter/" target="_blank" class="twitter" title="Twitter"></a>
             </li>
             <li>
-                <a href="blog.html">Blog</a>
+                <a href="http://freewebsitetemplates.com/go/youtube/" target="_blank" class="vimeo" title="Vimeo"></a>
             </li>
             <li>
-                <a href="index.html">Gallery</a>
+                <a href="http://freewebsitetemplates.com/go/googleplus/" target="_blank" class="googleplus" title="Google+"></a>
             </li>
         </ul>
-        <span>&copy; Copyright &copy; 2020. Cycling Zone all rights reserved.</span>
+        <div id="footnote">
+            <ul>
+                <li class="active">
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+                <li>
+                    <a href="blog.html">Blog</a>
+                </li>
+                <li>
+                    <a href="index.html">Gallery</a>
+                </li>
+            </ul>
+            <span>&copy; Copyright &copy; 2020. Cycling Zone all rights reserved.</span>
+        </div>
     </div>
-</div>
 
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
-<script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
-<script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js" asp-append-version="true"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
-<script src="~/js/site.min.js" asp-append-version="true"></script>
-@await this.RenderSectionAsync("Scripts", required: false)
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
+    <script src="~/js/site.min.js" asp-append-version="true"></script>
+    @await this.RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

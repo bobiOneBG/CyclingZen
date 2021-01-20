@@ -1,6 +1,7 @@
 ﻿namespace CyclingZone.Data.Seeding
 {
     using System;
+    using System.Linq;
     using System.Threading.Tasks;
 
     using CyclingZone.Data.Models;
@@ -9,18 +10,23 @@
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
+            if (dbContext.Subcategories.Any())
+            {
+                return;
+            }
+
             var subcategories = new string[]
             {
                 "Racing",
                 "General News",
                 "Product News",
-                "Bike Fit",
-                "Nutrition",
-                "Training",
                 "Bike Reviews",
                 "Bike Components",
                 "Bike Accessories",
                 "Clothing",
+                "Bike Fit",
+                "Nutrition",
+                "Training",
             };
 
             var categoryId = 1;
@@ -31,14 +37,14 @@
 
             categoryId++;
 
-            for (int i = 3; i < 6; i++)
+            for (int i = 3; i < 7; i++)
             {
                 await AddToDb(dbContext, subcategories, categoryId, i);
             }
 
             categoryId++;
 
-            for (int i = 6; i < subcategories.Length; i++)
+            for (int i = 7; i < subcategories.Length; i++)
             {
                 await AddToDb(dbContext, subcategories, categoryId, i);
             }
