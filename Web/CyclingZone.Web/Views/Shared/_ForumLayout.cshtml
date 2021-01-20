@@ -13,7 +13,7 @@
     <!-- Bootstrap core CSS -->
     <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom fonts for this template -->    
+    <!-- Custom fonts for this template -->
     <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -35,40 +35,43 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <partial name="_LoginPartial" />
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="post.html">Sample Post</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
                 </ul>
             </div>
-            @*<div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="post.html">Sample Post</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li>
-                    </ul>
-                </div>*@
         </div>
     </nav>
-
+    
     <!-- Page Header -->
     <header class="masthead" style="background-image: url('@Url.Content("~/images/forum.jpg")')">
         <div class="overlay"></div>
+        <ul class="list-group float-right m-5 bg-transparent text-light">
+            <li class="list-group-item bg-transparent">
+                <img src="~/images/Forum/cyclocross.png" width="25" height="25" />&nbsp;&nbsp; A simple prima
+            </li>
+        </ul>
         <div class="container">
             <div class="row">
+
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="site-heading">
                         <h1>Clean Power</h1>
+
                         <span class="subheading">A Forum for Cyclist</span>
                     </div>
                 </div>
             </div>
+
         </div>
     </header>
 

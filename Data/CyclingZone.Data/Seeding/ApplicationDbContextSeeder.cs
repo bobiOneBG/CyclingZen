@@ -28,8 +28,8 @@
                               new RolesSeeder(),
                               new SettingsSeeder(),
                               new CategoriesSeeder(),
-                              new SubcategoriesSeeder(),
-                              new ForumCategoriesSeeder(),
+
+                              // new SubcategoriesSeeder(),
                           };
 
             foreach (var seeder in seeders)

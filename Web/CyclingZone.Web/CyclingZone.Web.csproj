@@ -17,10 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.9">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.9" />
     <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
@@ -43,6 +39,13 @@
     <ProjectReference Include="..\CyclingZone.Web.Infrastructure\CyclingZone.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\CyclingZone.Web.ViewModels\CyclingZone.Web.ViewModels.csproj" />
   </ItemGroup>
+<<<<<<< Updated upstream
+=======
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\Forum\" />
+  </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+>>>>>>> Stashed changes
 </Project>

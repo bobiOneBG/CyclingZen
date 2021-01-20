@@ -9,6 +9,7 @@
     using CyclingZone.Data.Repositories;
     using CyclingZone.Data.Seeding;
     using CyclingZone.Services.Data;
+    using CyclingZone.Services.Data.Forum;
     using CyclingZone.Services.Mapping;
     using CyclingZone.Services.Messaging;
     using CyclingZone.Web.ViewModels;
@@ -67,6 +68,7 @@
             services.AddTransient<IArticleService, ArticleService>();
             services.AddTransient<ICategoriesService, CategoriesService>();
             services.AddTransient<ISubcategoriesService, SubcategoriesService>();
+            services.AddTransient<IForumCategoriesService, ForumCategoriesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -105,7 +107,6 @@
             app.UseEndpoints(
                 endpoints =>
                     {
-                        endpoints.MapControllerRoute("forum", "f/{category}/{discusson:int?}");
                         endpoints.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
                         endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                         endpoints.MapRazorPages();

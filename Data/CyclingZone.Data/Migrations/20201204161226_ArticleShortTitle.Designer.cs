@@ -4,14 +4,16 @@ using CyclingZone.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CyclingZone.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201204161226_ArticleShortTitle")]
+    partial class ArticleShortTitle
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -149,9 +151,6 @@ namespace CyclingZone.Data.Migrations
                     b.Property<string>("Author")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Category")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
@@ -172,9 +171,6 @@ namespace CyclingZone.Data.Migrations
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Subcategory")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("SubcategoryId")
                         .HasColumnType("int");
@@ -223,75 +219,6 @@ namespace CyclingZone.Data.Migrations
                     b.ToTable("Categories");
                 });
 
-<<<<<<< Updated upstream
-=======
-            modelBuilder.Entity("CyclingZone.Data.Models.ForumModels.ForumCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IsDeleted");
-
-                    b.ToTable("ForumCategories");
-                });
-
-            modelBuilder.Entity("CyclingZone.Data.Models.ForumModels.Post", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("ForumCategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ForumCategoryId");
-
-                    b.HasIndex("IsDeleted");
-
-                    b.ToTable("Post");
-                });
-
->>>>>>> Stashed changes
             modelBuilder.Entity("CyclingZone.Data.Models.Setting", b =>
                 {
                     b.Property<int>("Id")
@@ -467,13 +394,6 @@ namespace CyclingZone.Data.Migrations
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("CyclingZone.Data.Models.ForumModels.Post", b =>
-                {
-                    b.HasOne("CyclingZone.Data.Models.ForumModels.ForumCategory", null)
-                        .WithMany("Posts")
-                        .HasForeignKey("ForumCategoryId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
